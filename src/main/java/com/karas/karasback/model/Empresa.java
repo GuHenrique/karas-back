@@ -1,5 +1,7 @@
 package com.karas.karasback.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +19,7 @@ public class Empresa {
 
     @Id // informa que é uma chave primaria no banco.
     @GeneratedValue(strategy = GenerationType.AUTO) // gera a inserção dos números automaticamente no banco.
+    @JsonProperty("_id")
     private Long id;
 
     // @Column(name = "rzSocial") mesma função que o @Table, porém no nome da

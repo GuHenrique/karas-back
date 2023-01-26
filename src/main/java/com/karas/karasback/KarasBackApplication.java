@@ -5,7 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.karas.karasback.model.Cargo;
+import com.karas.karasback.model.Colaborador;
 import com.karas.karasback.model.Empresa;
+import com.karas.karasback.repository.CargoRepository;
+import com.karas.karasback.repository.ColaboradorRepository;
 import com.karas.karasback.repository.EmpresaRepository;
 
 @SpringBootApplication
@@ -24,7 +28,29 @@ public class KarasBackApplication {
 			e.setNomeFantasia("Aramis Center Vale");
 			e.setCnpj("123489273829");
 			empresaRepository.save((e));
+
 		};
+	}
+
+	@Bean
+	CommandLineRunner initDataBase(CargoRepository cargoRepository, ColaboradorRepository colaboradorRepository) {
+		return args -> {
+			cargoRepository.deleteAll();
+			Cargo c = new Cargo();
+			c.setDescricao("Vendedor");
+			c.setEmpresa("Aramis Center Vale");
+			c.setSalario(1500.20);
+			cargoRepository.save((c));
+			colaboradorRepository.deleteAll();
+			Colaborador co = new Colaborador();
+			co.setNome("João da Siva");
+			co.setCargo("Vedendor");
+			co.setEmpresa("Aramis Center Vale");
+			co.setSalario(1500.20);
+			colaboradorRepository.save((co));
+
+		};
+
 	}
 
 }
