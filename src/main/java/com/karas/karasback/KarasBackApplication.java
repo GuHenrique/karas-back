@@ -26,7 +26,7 @@ public class KarasBackApplication {
 			Empresa e = new Empresa();
 			e.setRazaoSocial("Cara de Formiga");
 			e.setNomeFantasia("Aramis Center Vale");
-			e.setCnpj("123489273829");
+			e.setCnpj("20851226000103");
 			empresaRepository.save((e));
 
 		};
