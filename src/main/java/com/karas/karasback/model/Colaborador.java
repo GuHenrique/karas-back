@@ -29,7 +29,7 @@ public class Colaborador {
     @Column(length = 200, nullable = false)
     private String empresa;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 20, nullable = true)
     private Double salario;
 
 }
